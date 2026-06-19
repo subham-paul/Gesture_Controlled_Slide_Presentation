@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% block title %}Contact – GestureSlides AI{% endblock %}
+{% block content %}
+
+<style>
+/* 🌌 GLOBAL THEME */
+body{
+  background:radial-gradient(circle at top left,#001b2e,#000814);
+  color:#eaf6ff;
+  overflow-x:hidden;
+}
+
+/* ✨ Animations */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes floatIcon{
+  50%{transform:translateY(-10px)}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,229,255,.6)}
+  70%{box-shadow:0 0 0 20px rgba(0,229,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,229,255,0)}
+}
+
+/* 🌎 HEADER */
+.contact-header{
+  min-height:75vh;
+  background:
+    linear-gradient(120deg,rgba(0,10,30,.8),rgba(0,50,90,.7)),
+    url('/static/images/Contact-Header-Background.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-bottom:2px solid rgba(0,229,255,.4);
+}
+.header-content{
+  animation:fadeUp 1s ease forwards;
+}
+.contact-header h1{
+  font-size:3rem;
+  color:#00e5ff;
+  text-shadow:0 0 30px rgba(0,229,255,.6);
+}
+.contact-header p{
+  max-width:700px;
+  margin:auto;
+  color:#cce7ff;
+  font-size:1.2rem;
+}
+
+/* 💌 FORM */
+.contact-form-section{padding:70px 0}
+.contact-card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:22px;
+  padding:36px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 0 30px rgba(0,229,255,.15);
+  transition:.4s;
+}
+.contact-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px rgba(0,229,255,.45);
+}
+.form-control{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  border-radius:10px;
+}
+.form-control:focus{
+  border-color:#00e5ff;
+  box-shadow:0 0 12px rgba(0,229,255,.35);
+}
+.btn-send{
+  background:linear-gradient(90deg,#00e5ff,#7c7cff);
+  border:none;
+  color:#000;
+  font-weight:700;
+  padding:12px 30px;
+  border-radius:30px;
+  animation:pulse 2.5s infinite;
+}
+.btn-send:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px rgba(0,229,255,.6);
+}
+
+/* 🧭 INFO CARDS */
+.info-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  transition:.4s;
+  animation:fadeUp 1s ease forwards;
+}
+.info-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(0,229,255,.35);
+}
+.info-icon{
+  font-size:2.6rem;
+  color:#00e5ff;
+  animation:floatIcon 3s ease-in-out infinite;
+}
+
+/* 🗺️ MAP */
+.map-section{padding:60px 0}
+.map-container{
+  max-width:90%;
+  margin:auto;
+  border-radius:18px;
+  overflow:hidden;
+  border:3px solid rgba(0,229,255,.4);
+  box-shadow:0 0 35px rgba(0,229,255,.25);
+  transition:.3s;
+}
+.map-container:hover{
+  transform:scale(1.01);
+  box-shadow:0 0 45px rgba(0,229,255,.55);
+}
+
+/* 🔔 FLASH */
+.flash-message{
+  margin-top:20px;
+  padding:12px 22px;
+  border-radius:14px;
+  font-weight:600;
+  text-align:center;
+  animation:fadeUp .5s ease;
+}
+.flash-message.success{
+  background:rgba(0,255,160,.1);
+  border:1px solid rgba(0,255,160,.4);
+  color:#00ffb2;
+}
+.flash-message.error{
+  background:rgba(255,80,80,.1);
+  border:1px solid rgba(255,80,80,.4);
+  color:#ff8080;
+}
+</style>
+
+<!-- 🌎 HEADER -->
+<section class="contact-header">
+  <div class="header-content">
+    <h1 class="fw-bold">Get in Touch ✉️</h1>
+    <p>
+      Have questions about gesture-controlled presentations?
+      Want feedback or collaboration? We’d love to hear from you.
+    </p>
+  </div>
+</section>
+
+<!-- 💌 CONTACT FORM -->
+<section class="contact-form-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="contact-card">
+          <h2 class="text-info mb-4">Send a Message</h2>
+          <form method="POST" action="{{ url_for('contact') }}">
+            <div class="mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea name="message" class="form-control" rows="5" placeholder="Your Message…" required></textarea>
+            </div>
+            <button type="submit" class="btn-send">Send Message</button>
+          </form>
+
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category,message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="info-card">
+              <i class="bi bi-geo-alt info-icon"></i>
+              <h5>Location</h5>
+              <p>New Delhi, India</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-card">
+              <i class="bi bi-envelope info-icon"></i>
+              <h5>Email</h5>
+              <p>gestureslides.ai@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-card">
+              <i class="bi bi-laptop info-icon"></i>
+              <h5>Project Type</h5>
+              <p>AI + Computer Vision</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-card">
+              <i class="bi bi-clock info-icon"></i>
+              <h5>Support</h5>
+              <p>Mon – Fri, 9AM–6PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🗺️ MAP (FIXED & STABLE) -->
+<section class="map-section">
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps?q=New+Delhi,India&output=embed"
+      width="100%"
+      height="420"
+      style="border:0"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const flash=document.querySelector(".flash-message");
+  if(flash){
+    setTimeout(()=>{
+      flash.style.opacity="0";
+      setTimeout(()=>flash.remove(),500);
+    },4000);
+  }
+});
+</script>
+
+{% endblock %}

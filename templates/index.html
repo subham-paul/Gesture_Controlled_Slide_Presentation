@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="/static/images/Gesture-Controlled.jpeg" class="d-block w-100 hero-img">
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100 text-center">
+        <h1 class="display-3 fw-bold text-info">Gesture-Controlled</h1>
+        <h2 class="fw-bold text-light">Slide Presentation</h2>
+        <p class="fs-5 mt-3">Control your slides using simple hand movements — no touch required.</p>
+        <a href="{{ url_for('dashboard') }}" class="btn hero-btn mt-4">Start Demo</a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="/static/images/Powered-by-AI-Vision.jpeg" class="d-block w-100 hero-img">
+      <div class="carousel-caption h-100 d-flex flex-column justify-content-center">
+        <h1 class="display-4 fw-bold text-info">Powered by AI Vision</h1>
+        <p class="fs-5 mt-3">MediaPipe Hand Tracking + Computer Vision intelligence.</p>
+        <a href="{{ url_for('about') }}" class="btn btn-outline-info hero-btn mt-4">Learn How It Works</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="/static/images/Touchless_Presentations.jpeg" class="d-block w-100 hero-img">
+      <div class="carousel-caption h-100 d-flex flex-column justify-content-center">
+        <h1 class="display-4 fw-bold text-info">Touchless Presentations</h1>
+        <p class="fs-5 mt-3">Perfect for classrooms, seminars, conferences & smart boards.</p>
+        <a href="{{ url_for('dashboard') }}" class="btn hero-btn mt-4">Try Live Control</a>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<style>
+.hero-img{
+  height:88vh;
+  object-fit:cover;
+  filter:brightness(.3);
+}
+.hero-btn{
+  background:linear-gradient(135deg,#7c7cff,#00e5ff);
+  border:none;
+  padding:12px 36px;
+  border-radius:30px;
+  color:#000;
+  font-weight:600;
+  transition:.3s;
+}
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 25px rgba(124,124,255,.6);
+}
+</style>
+
+<!-- ================= WHY CHOOSE ================= -->
+<section class="py-5 text-light text-center" style="background:radial-gradient(circle,#0b0f2b,#050611)">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-4">Why Choose <span class="text-light">GestureSlides AI?</span></h2>
+    <p class="text-secondary fs-5 mb-5">A modern solution for touch-free, smart presentations.</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="glass-card p-4 h-100">
+          <i class="bi bi-hand-index-thumb icon"></i>
+          <h5 class="fw-bold mt-3">Hand Gesture Control</h5>
+          <p class="text-secondary">Swipe left or right using your hand to change slides naturally.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card p-4 h-100">
+          <i class="bi bi-camera-video icon"></i>
+          <h5 class="fw-bold mt-3">Real-Time Camera Feed</h5>
+          <p class="text-secondary">Live camera with visual hand-tracking feedback.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card p-4 h-100">
+          <i class="bi bi-braces icon"></i>
+          <h5 class="fw-bold mt-3">Easy Integration</h5>
+          <p class="text-secondary">Works with PowerPoint, PDF viewers & browser slides.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.glass-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  transition:.35s;
+}
+.glass-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(0,229,255,.35);
+  border-color:#00e5ff;
+}
+.icon{
+  font-size:3rem;
+  color:#00e5ff;
+}
+</style>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="py-5 text-center text-light" style="background:linear-gradient(180deg,#0a0e22,#050611)">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-4">How <span class="text-light">It Works</span></h2>
+    <p class="text-secondary fs-5 mb-5">Only three intelligent steps.</p>
+
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-md-3">
+        <div class="step-card">
+          <i class="bi bi-camera step-icon"></i>
+          <h5 class="mt-3 fw-bold">Camera Capture</h5>
+          <p class="text-secondary">Webcam captures your hand movements.</p>
+        </div>
+      </div>
+
+      <div class="col-md-1 d-none d-md-block">
+        <i class="bi bi-arrow-right-circle-fill step-arrow"></i>
+      </div>
+
+      <div class="col-md-3">
+        <div class="step-card">
+          <i class="bi bi-cpu step-icon"></i>
+          <h5 class="mt-3 fw-bold">AI Processing</h5>
+          <p class="text-secondary">MediaPipe detects gesture direction.</p>
+        </div>
+      </div>
+
+      <div class="col-md-1 d-none d-md-block">
+        <i class="bi bi-arrow-right-circle-fill step-arrow"></i>
+      </div>
+
+      <div class="col-md-3">
+        <div class="step-card">
+          <i class="bi bi-keyboard step-icon"></i>
+          <h5 class="mt-3 fw-bold">Slide Control</h5>
+          <p class="text-secondary">Keyboard events trigger slide change.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.step-card{
+  background:rgba(255,255,255,.05);
+  border-radius:16px;
+  padding:28px 20px;
+  border:1px solid rgba(255,255,255,.1);
+  transition:.3s;
+}
+.step-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 28px rgba(0,229,255,.3);
+}
+.step-icon{
+  font-size:3rem;
+  color:#00e5ff;
+}
+.step-arrow{
+  font-size:2.2rem;
+  color:#00e5ff;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  50%{transform:scale(1.2)}
+}
+</style>
+
+<!-- ================= USE CASES ================= -->
+<section class="py-5 text-light text-center" style="background:radial-gradient(circle,#070b20,#02030a)">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-4">Use <span class="text-light">Cases</span></h2>
+
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <div class="use-card p-4">🎓<br>Classrooms</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="use-card p-4">🏢<br>Corporate Meetings</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="use-card p-4">🎤<br>Seminars</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="use-card p-4">🧠<br>Smart Boards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.use-card{
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  font-size:1.2rem;
+  transition:.3s;
+}
+.use-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 22px rgba(124,124,255,.4);
+}
+</style>
+
+<!-- ================= CTA ================= -->
+<section class="py-5 text-center text-light" style="background:url('/static/images/CTA_BACKGROUND_IMAGE.jpeg') center/cover fixed">
+  <div class="container py-5" style="background:rgba(0,0,0,.65);border-radius:20px">
+    <h2 class="fw-bold text-info mb-3">Ready to Control Slides with Your Hand?</h2>
+    <p class="fs-5 mb-4">Experience the future of presentations today.</p>
+    <a href="{{ url_for('dashboard') }}" class="btn hero-btn btn-lg">Launch Dashboard</a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,332 @@
+{% extends 'base.html' %}
+{% block title %}About – GestureSlides AI{% endblock %}
+{% block content %}
+
+<!-- ===================== 🌠 HERO SECTION ===================== -->
+<section class="about-hero-section text-center text-light">
+  <div class="container d-flex flex-column align-items-center justify-content-center h-100">
+    <h1 class="fw-bold mb-3">
+      About <span class="text-info">GestureSlides AI</span>
+    </h1>
+    <p class="lead mb-4 text-secondary">
+      A touchless presentation system powered by Computer Vision and Artificial Intelligence,
+      enabling you to control slides using simple hand gestures.
+    </p>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-info btn-lg px-5 fw-semibold shadow-lg explore-btn">
+      Try Live Demo →
+    </a>
+  </div>
+</section>
+
+<style>
+.about-hero-section{
+  height:70vh;
+  background:
+    linear-gradient(rgba(0,10,30,.85),rgba(0,0,0,.9)),
+    url('/static/images/Hero-Section-Background-Image.jpeg') center/cover no-repeat;
+  position:relative;
+  overflow:hidden;
+}
+.about-hero-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,rgba(0,229,255,.12) 2px,transparent 2px);
+  background-size:40px 40px;
+  animation:floatDots 60s linear infinite;
+}
+@keyframes floatDots{
+  from{transform:translate(0,0)}
+  to{transform:translate(50px,-50px)}
+}
+.explore-btn{
+  border-radius:40px;
+  transition:.3s;
+}
+.explore-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px rgba(0,229,255,.7);
+}
+</style>
+
+<!-- ===================== 💎 ABOUT PROJECT ===================== -->
+<section class="about-section py-5 text-light">
+  <div class="container">
+    <div class="row align-items-center gx-5">
+
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="/static/images/About-Project-Main-Image.jpeg"
+             class="img-fluid rounded-4 about-image">
+      </div>
+
+      <div class="col-md-7">
+        <div class="about-glass p-5">
+          <h2 class="fw-bold text-info mb-3">What is GestureSlides AI?</h2>
+          <p class="fs-5">
+            <strong>GestureSlides AI</strong> is an intelligent presentation controller that
+            allows users to navigate slides using <span class="text-info fw-semibold">hand gestures</span>.
+            The system uses <strong>MediaPipe Hands</strong>, <strong>OpenCV</strong>, and
+            <strong>Python</strong> to detect motion and convert gestures into keyboard commands
+            like <em>Next</em> and <em>Previous</em>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.about-section{
+  background:radial-gradient(circle at top,#02142a,#000912 90%);
+}
+.about-image{
+  border:2px solid rgba(0,229,255,.35);
+  box-shadow:0 0 35px rgba(0,229,255,.25);
+  animation:floatY 6s ease-in-out infinite;
+}
+@keyframes floatY{
+  50%{transform:translateY(-10px)}
+}
+.about-glass{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:25px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 40px rgba(0,229,255,.2);
+  transition:.4s;
+}
+.about-glass:hover{
+  transform:translateY(-8px);
+}
+</style>
+
+<!-- ===================== ⚙️ HOW IT WORKS ===================== -->
+<section class="how-section py-5 text-center text-light">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-5">How It Works ⚙️</h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="how-card">
+          <img src="/static/images/Camera-Input-card.jpeg">
+          <h5 class="text-info mt-3">Camera Input</h5>
+          <p>The webcam captures real-time hand movements.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="how-card">
+          <img src="/static/images/Gesture-Detection-card.jpeg">
+          <h5 class="text-info mt-3">Gesture Detection</h5>
+          <p>MediaPipe detects hand landmarks and motion direction.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="how-card">
+          <img src="/static/images/Slide-Control-card.jpeg">
+          <h5 class="text-info mt-3">Slide Control</h5>
+          <p>Keyboard events move slides forward or backward.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.how-section{
+  background:radial-gradient(circle at top,#021221,#000a12 90%);
+}
+.how-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,229,255,.15);
+  border-radius:20px;
+  padding:2rem 1.5rem;
+  height:100%;
+  transition:.4s;
+}
+.how-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 40px rgba(0,229,255,.3);
+}
+.how-card img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:2px solid rgba(0,229,255,.3);
+  box-shadow:0 0 25px rgba(0,229,255,.3);
+}
+</style>
+
+<!-- ===================== ❓ FAQ SECTION ===================== -->
+<section class="faq-section py-5 text-light">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-5 text-center">
+      Frequently Asked Questions ❓
+    </h2>
+
+    <div class="row align-items-center g-5">
+
+      <!-- 📘 LEFT: FAQ ACCORDION -->
+      <div class="col-lg-7">
+
+        <div class="accordion faq-accordion" id="faqAccordion">
+
+          <!-- FAQ 1 -->
+          <div class="accordion-item faq-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+                What is GestureSlides AI?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                GestureSlides AI is a touchless presentation system that allows you to control slides
+                using hand gestures detected through a webcam.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item faq-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Which gestures are supported?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Currently, left swipe moves to the previous slide and right swipe moves to the next slide.
+                More gestures can be added in the future.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item faq-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Do I need any special hardware?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                No special hardware is required. A standard webcam is enough to run GestureSlides AI.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item faq-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Which technologies are used?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                The project uses MediaPipe Hands, OpenCV, Flask, JavaScript, and Bootstrap for UI.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="accordion-item faq-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
+                Is this project suitable for college submission?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes, this project is fully suitable for college projects, viva examinations,
+                and portfolio demonstrations.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 🖼 RIGHT: IMAGE -->
+      <div class="col-lg-5 text-center">
+        <img 
+          src="/static/images/Right-side-image-in-FAQ.jpg"
+          alt="Gesture AI Illustration"
+          class="faq-image img-fluid">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ STYLES ===================== -->
+<style>
+.faq-section{
+  background:radial-gradient(circle at top,#001b2e,#000814);
+}
+
+/* Accordion */
+.faq-item{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  margin-bottom:15px;
+  overflow:hidden;
+}
+.accordion-button{
+  background:transparent;
+  color:#eaf6ff;
+  font-weight:600;
+}
+.accordion-button:not(.collapsed){
+  color:#00e5ff;
+  background:rgba(255,255,255,.05);
+}
+.accordion-button::after{
+  filter:invert(1);
+}
+.accordion-body{
+  background:rgba(255,255,255,.04);
+  color:#d6eaff;
+}
+
+/* Image */
+.faq-image{
+  border-radius:20px;
+  border:2px solid rgba(0,229,255,.35);
+  box-shadow:0 0 35px rgba(0,229,255,.35);
+  transition:.4s;
+}
+.faq-image:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 55px rgba(0,229,255,.6);
+}
+
+/* Responsive */
+@media(max-width:991px){
+  .faq-image{margin-top:30px;}
+}
+</style>
+
+<!-- ===================== 🌌 CTA ===================== -->
+<section class="cta-section text-center py-5 text-light">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-3">Ready for Touchless Presentations?</h2>
+    <p class="fs-5 mb-4">Experience gesture-based slide control today.</p>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-info btn-lg px-5">Launch Dashboard</a>
+  </div>
+</section>
+
+<style>
+.cta-section{
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    url('/static/images/CTA_BACKGROUND_IMAGE.jpeg') center/cover no-repeat;
+}
+</style>
+
+{% endblock %}

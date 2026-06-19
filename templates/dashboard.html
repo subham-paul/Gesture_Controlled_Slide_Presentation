@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard – GestureSlides AI{% endblock %}
+
+{% block content %}
+
+<!-- ================= DASHBOARD HERO ================= -->
+<section class="dash-hero text-light text-center">
+  <div class="container py-5">
+    <h1 class="fw-bold text-info display-5">Gesture Control Dashboard</h1>
+    <p class="fs-5 text-secondary mt-3">
+      Control your presentation slides using simple hand gestures in real time.
+    </p>
+  </div>
+</section>
+
+<style>
+.dash-hero{
+  background:linear-gradient(135deg,#0b0f2b,#050611);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+</style>
+
+<!-- ================= MAIN DASHBOARD ================= -->
+<section class="dashboard-area py-5 text-light">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+
+      <!-- CAMERA PANEL -->
+      <div class="col-lg-7">
+        <div class="camera-card h-100">
+          <div class="camera-header d-flex justify-content-between align-items-center">
+            <h5 class="fw-bold mb-0"><i class="bi bi-camera-video-fill text-info"></i> Live Camera Feed</h5>
+            <span class="badge bg-info text-dark px-3 py-2">AI Vision</span>
+          </div>
+
+          <div class="camera-body mt-3">
+            <img id="cameraFeed"
+                 src="/static/images/Camera-Feed-Placeholder.jpeg"
+                 class="img-fluid camera-frame"
+                 alt="Camera Feed">
+          </div>
+
+          <div class="camera-footer mt-4 d-flex gap-3 justify-content-center">
+            <button id="startCam" class="btn btn-info px-4">
+              <i class="bi bi-play-fill"></i> Start Camera
+            </button>
+            <button id="stopCam" class="btn btn-outline-info px-4">
+              <i class="bi bi-stop-fill"></i> Stop Camera
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATUS & INFO PANEL -->
+      <div class="col-lg-5">
+        <div class="status-card mb-4">
+          <h5 class="fw-bold mb-3 text-info">
+            <i class="bi bi-activity"></i> Gesture Status
+          </h5>
+          <div class="status-box" id="gestureStatus">
+            Waiting for gesture...
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <h5 class="fw-bold mb-3 text-info">
+            <i class="bi bi-lightbulb-fill"></i> How to Use
+          </h5>
+
+          <ul class="instruction-list">
+            <li>✋ Show your hand clearly in front of the camera</li>
+            <li>➡ Swipe Right → Next Slide</li>
+            <li>⬅ Swipe Left → Previous Slide</li>
+            <li>🖥 Works with PowerPoint, PDFs & Browser Slides</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.dashboard-area{
+  background:radial-gradient(circle at top,#0a0e22,#050611);
+}
+
+/* CAMERA CARD */
+.camera-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:24px;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+.camera-card:hover{
+  box-shadow:0 0 35px rgba(0,229,255,.25);
+  border-color:#00e5ff;
+}
+
+.camera-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:10px;
+}
+
+.camera-frame{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:16px;
+  border:2px solid rgba(0,229,255,.4);
+  box-shadow:0 0 25px rgba(0,229,255,.3);
+}
+
+/* STATUS */
+.status-card,
+.instruction-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  padding:22px;
+  backdrop-filter:blur(8px);
+  transition:.3s;
+}
+.status-card:hover,
+.instruction-card:hover{
+  border-color:#7c7cff;
+  box-shadow:0 0 28px rgba(124,124,255,.35);
+}
+
+.status-box{
+  background:linear-gradient(135deg,#7c7cff,#00e5ff);
+  color:#000;
+  font-weight:700;
+  text-align:center;
+  padding:16px;
+  border-radius:14px;
+  animation:pulseStatus 2.5s infinite;
+}
+
+@keyframes pulseStatus{
+  50%{transform:scale(1.04)}
+}
+
+.instruction-list{
+  list-style:none;
+  padding-left:0;
+}
+.instruction-list li{
+  margin-bottom:12px;
+  font-size:1rem;
+  color:#cfefff;
+}
+</style>
+
+<!-- ================= VISUAL GUIDE ================= -->
+<section class="py-5 text-center text-light">
+  <div class="container">
+    <h2 class="fw-bold text-info mb-4">Gesture <span class="text-light">Visual Guide</span></h2>
+    <p class="text-secondary fs-5 mb-5">
+      Understand how gestures translate into slide control actions.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="gesture-card">
+          <img src="/static/images/Gesture-Visual-Guide — Swipe-Right.jpeg"
+               class="img-fluid rounded mb-3">
+          <h5 class="fw-bold">Swipe Right</h5>
+          <p class="text-secondary">Moves to the next slide</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="gesture-card">
+          <img src="/static/images/Gesture-Visual-Guide — Swipe-Left.jpeg"
+               class="img-fluid rounded mb-3">
+          <h5 class="fw-bold">Swipe Left</h5>
+          <p class="text-secondary">Moves to the previous slide</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.gesture-card{
+  background:rgba(255,255,255,.05);
+  border-radius:18px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.1);
+  transition:.35s;
+}
+.gesture-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(0,229,255,.3);
+}
+.gesture-card img{
+  height:220px;
+  object-fit:cover;
+  box-shadow:0 0 18px rgba(0,229,255,.25);
+}
+</style>
+
+<!-- ================= JS HOOK ================= -->
+<script>
+document.getElementById("startCam").onclick = () => {
+  fetch("/start_camera");
+  document.getElementById("cameraFeed").src = "/video_feed";
+};
+
+document.getElementById("stopCam").onclick = () => {
+  fetch("/stop_camera");
+  document.getElementById("cameraFeed").src =
+    "https://images.unsplash.com/photo-1518779578993-ec3579fee39f";
+};
+
+// Gesture status polling
+setInterval(async ()=>{
+  const res = await fetch("/gesture_status");
+  const data = await res.json();
+  document.getElementById("gestureStatus").innerText = data.gesture;
+},1000);
+</script>
+
+{% endblock %}
