@@ -1,159 +1,298 @@
-🖐️ Gesture-Controlled Slide Presentation (GestureSlides AI)
+# 🎤 Gesture Controlled Slide Presentation
 
-A touchless presentation control system powered by Computer Vision and Artificial Intelligence.
-Control your slides using simple hand gestures — no keyboard, no mouse, no remote.
+A modern **Gesture-Controlled Presentation System** built with **Python**, **Flask**, **OpenCV**, and **MediaPipe**. This application enables users to control PowerPoint or presentation slides using hand gestures captured through a webcam, eliminating the need for a traditional mouse or presentation remote.
 
-🚀 Project Overview
+> **Deliver presentations effortlessly with intuitive hand gestures powered by Artificial Intelligence and Computer Vision.**
 
-GestureSlides AI allows presenters to navigate presentation slides using hand swipe gestures captured through a webcam.
-The system detects gestures in real time using MediaPipe Hands, processes motion using OpenCV, and triggers slide navigation using keyboard automation.
+---
 
-This project demonstrates the practical use of AI + Computer Vision + Web Technologies in real-world applications.
+# ✨ Features
 
-✨ Key Features
+- 🖐️ Hand gesture recognition
+- 🎥 Real-time webcam tracking
+- ▶️ Next and previous slide navigation
+- ✍️ Virtual laser pointer *(optional)*
+- 📝 Annotation support *(optional)*
+- ⚡ Smooth and responsive gesture detection
+- 🌐 Flask-based web interface
+- 📷 Real-time video processing
+- 💻 Cross-platform compatibility
 
-🖐️ Gesture-Based Control
+---
 
-Swipe Right → Next Slide
+# 🛠️ Tech Stack
 
-Swipe Left → Previous Slide
+## Backend
 
-🎥 Live Camera Feed
+- Python 3.x
+- Flask
 
-Real-time hand tracking with visual feedback
+## Computer Vision
 
-🧠 AI-Powered Vision
+- OpenCV
+- MediaPipe
 
-MediaPipe Hands for accurate landmark detection
+## Automation
 
-🌐 Web-Based Interface
+- PyAutoGUI / Keyboard Controller *(depending on implementation)*
 
-Flask backend with responsive Bootstrap UI
+## Frontend
 
-🖥 Universal Compatibility
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- Jinja2 Templates
 
-Works with PowerPoint, Google Slides, PDF viewers, and browsers
+---
 
-🎓 Viva & Portfolio Ready
+# 📂 Project Structure
 
-Clean architecture, documented, and professional UI
-
-🛠 Tech Stack
-Category	Technologies
-Backend	Python, Flask
-Computer Vision	OpenCV, MediaPipe
-Gesture Logic	MediaPipe Hands
-Automation	PyAutoGUI
-Frontend	HTML, CSS, Bootstrap
-Scripting	JavaScript
-Streaming	Flask MJPEG video feed
-📂 Project Structure
-Gesture-Controlled-Slide-Presentation/
+```text
+Gesture_Controlled_Slide_Presentation/
 │
 ├── app.py
 ├── requirements.txt
-├── README.md
-│
+├── config.py
 ├── static/
-│   └── js/
-│       └── main.js
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── slides/
 │
 ├── templates/
-│   ├── base.html
 │   ├── index.html
-│   ├── dashboard.html
-│   ├── about.html
-│   └── contact.html
+│   ├── presentation.html
+│   └── ...
 │
-└── venv/
+├── models/
+├── utils/
+├── README.md
+│
+└── ...
+```
 
-⚙️ How It Works
+---
 
-Camera Capture
+# 🚀 Features Overview
 
-Webcam captures live video frames.
+- 🖐️ AI Hand Gesture Recognition
+- 🎥 Live Webcam Detection
+- ⏭️ Next Slide Control
+- ⏮️ Previous Slide Control
+- 🖱️ Gesture-Based Navigation
+- 📽️ Presentation Mode
+- ⚡ Real-Time Processing
+- 💻 Lightweight & Fast
+- 🌐 Browser-Based Interface
+- 📊 Easy to Extend
 
-Hand Detection
+---
 
-MediaPipe detects hand landmarks in real time.
+# ⚙️ Installation
 
-Gesture Analysis
+## 1. Clone the Repository
 
-Wrist X-axis movement is tracked.
+```bash
+git clone https://github.com/subham-paul/Gesture_Controlled_Slide_Presentation.git
+```
 
-Swipe direction is identified.
+```bash
+cd Gesture_Controlled_Slide_Presentation
+```
 
-Action Trigger
+---
 
-Right swipe → Right Arrow key
+## 2. Create a Virtual Environment
 
-Left swipe → Left Arrow key
+### Windows
 
-Slide Navigation
-
-Presentation responds instantly.
-
-🧪 Gesture Mapping
-Gesture	Action
-Swipe Right	Next Slide
-Swipe Left	Previous Slide
-No Motion	Idle
-▶️ How to Run the Project
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/Gesture-Controlled-Slide-Presentation.git
-cd Gesture-Controlled-Slide-Presentation
-
-2️⃣ Create Virtual Environment (Optional)
+```bash
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+```
 
-3️⃣ Install Dependencies
+Activate
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+```
+
+Activate
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Run the Application
+---
+
+## 4. Run the Application
+
+```bash
 python app.py
+```
 
-5️⃣ Open in Browser
+or
+
+```bash
+flask run
+```
+
+---
+
+# 🌐 Open in Browser
+
+```
 http://127.0.0.1:5000
+```
 
-🧠 Viva Explanation (Short)
+---
 
-“This project uses MediaPipe Hands to detect hand landmarks in real time.
-By tracking wrist movement along the X-axis, the system identifies swipe gestures.
-These gestures are converted into keyboard events using PyAutoGUI, enabling touchless slide navigation through a Flask web interface.”
+# 📝 How It Works
 
-🎯 Use Cases
+1. Launch the application.
+2. Allow access to your webcam.
+3. The webcam continuously tracks your hand movements.
+4. MediaPipe detects hand landmarks in real time.
+5. Recognized gestures are mapped to presentation controls.
+6. Slides change automatically based on the detected gesture.
+7. Present without touching your keyboard or mouse.
 
-🎓 Classrooms & Smart Boards
+---
 
-🧑‍🏫 Online Teaching
+# ✋ Example Gestures
 
-🏢 Corporate Presentations
+| Gesture | Action |
+|----------|--------|
+| 👉 Swipe Right | Next Slide |
+| 👈 Swipe Left | Previous Slide |
+| ✋ Open Palm | Pause Detection |
+| ☝️ Index Finger | Virtual Pointer |
+| ✍️ Pinch Gesture | Annotation *(Optional)* |
 
-🎤 Seminars & Conferences
+> *Available gestures may vary depending on your implementation.*
 
-🖥 Accessibility-Focused Interfaces
+---
 
-🔮 Future Enhancements
+# 📊 Applications
 
-✋ Add more gestures (pause, zoom, laser pointer)
+- Smart Classrooms
+- Business Presentations
+- Online Teaching
+- Conferences & Seminars
+- Training Sessions
+- Interactive Learning
+- AI Demonstrations
+- Touchless Presentation Systems
 
-🎙 Voice + Gesture hybrid control
+---
 
-📱 Mobile camera support
+# 🚀 Future Enhancements
 
-🤖 AI gesture customization
+- 🎯 AI Gesture Customization
+- 📝 Whiteboard Annotation
+- 🔴 Virtual Laser Pointer
+- 🎤 Voice Command Integration
+- 🌍 Multi-Hand Recognition
+- ☁️ Cloud Presentation Support
+- 📱 Mobile Controller Integration
+- 🤖 Deep Learning Gesture Recognition
+- 📊 Presentation Analytics
+- 🌐 Remote Presentation Control
 
-🌍 Cloud deployment
+---
 
-👨‍💻 Developer
+# 🤝 Contributing
 
-Sabuj Dhali
-📍 India
-🎓 B.Sc Data Science
-💡 Interests: AI, Computer Vision, Full-Stack Development
+Contributions are welcome!
 
-📜 License
+1. Fork this repository.
 
-This project is for educational and academic purposes.
-Feel free to fork, modify, and learn from it."# Gesture_Controlled_Slide_Presentation" 
+2. Create a feature branch.
+
+```bash
+git checkout -b feature/NewFeature
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "Add New Feature"
+```
+
+4. Push the changes.
+
+```bash
+git push origin feature/NewFeature
+```
+
+5. Open a Pull Request.
+
+---
+
+# 🐞 Reporting Issues
+
+Found a bug or have a feature request?
+
+Please create an issue with a detailed description.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 👨‍💻 Author
+
+## **Subham Paul**
+
+Passionate about **Python, Artificial Intelligence, Computer Vision, Automation, Flask, and Web Development.**
+
+- GitHub: https://github.com/subham-paul
+- LinkedIn: https://www.linkedin.com/in/subham-paul-india/
+
+---
+
+# ⭐ Show Your Support
+
+If you found this project useful:
+
+- ⭐ Star this repository
+- 🍴 Fork the project
+- 🤝 Contribute
+- 💬 Share your feedback
+
+
+---
+
+## 🙏 Acknowledgements
+
+Special thanks to the open-source communities behind:
+
+- Python
+- Flask
+- OpenCV
+- MediaPipe
+- PyAutoGUI
+- NumPy
+
+for providing the technologies that made this project possible.
+
+---
+
+> **"Present smarter—control your slides with just a wave of your hand."** 🖐️🎤📽️
